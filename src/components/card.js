@@ -16,6 +16,8 @@
   //   </div>
   // </div>
 
+import axios from "axios";
+
 
 
 
@@ -43,7 +45,7 @@ authorSpan.textContent = `Written by: ${article.authorName}`;
 
 
 
-cardDiv.appendChild(headline); 
+cardDiv.appendChild(headlineDiv); 
 cardDiv.appendChild(author); 
 author.appendChild(divImageContainer); 
 divImageContainer.appendChild(image); 
@@ -56,18 +58,14 @@ cardDiv.addEventListener('click', () =>{
 
 
 
-
+return cardDiv; 
 
 
 }
 
 
 
-
-  
-
-const cardAppender = (selector) => {
-  // TASK 6
+// TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
   // It should obtain articles from this endpoint: `http://localhost:5000/api/articles` (test it in Postman/HTTPie!).
@@ -75,6 +73,40 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  
+  
+
+const cardAppender = (selector) => {
+  const selectedCard = document.querySelector(selector); 
+  axios.get('http://localhost:5000/api/articles').then(resp =>{
+    const javascript = resp.data.articles.javascript
+    javascript.forEach(element =>{
+      selectedCard.appendChild(Card(element))
+    })
+    const bootstrap = resp.data.articles.bootstrap
+    bootstrap.forEach(element => {
+      selectedCard.appendChild(Card(element))
+    })
+    const technology = resp.data.articles.technology
+    technology.forEach(element => {
+      selectedCard.appendChild(Card(element))
+    })
+    const jquery = resp.data.articles.jquery
+    jquery.forEach(element => {
+      selectedCard.appendChild(Card(element))
+    })
+    const node = resp.data.articles.node
+    node.forEach(element => {
+      selectedCard.appendChild(Card(element))
+    })
+  })
+  
+  .catch(err =>{
+    console.error(err)
+  })
+
 }
+  
+
 
 export { Card, cardAppender }
