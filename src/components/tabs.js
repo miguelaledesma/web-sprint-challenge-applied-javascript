@@ -27,8 +27,8 @@ axios.get(`http://localhost:5000/api/topics`)
 
 const Tabs = (topics) => {
  const topicsDiv = document.createElement('div'); 
- topicsDiv.classList.add(topics); 
- topics.forEach(element => {
+ topicsDiv.classList.add('topics'); 
+ topics.forEach( element => {
    const tabs = document.createElement('div')
    tabs.classList.add('tab')
    tabs.textContent = element;
@@ -38,7 +38,7 @@ const Tabs = (topics) => {
  return topicsDiv; 
 
 
-// const divTopics = document.createElement('div');
+// const topicsDivs = document.createElement('div');
 //   divTopics.classList.add('topics');
 //   const newTab = document.createElement('div');
 //   newTab.classList.add('tab');
