@@ -1,5 +1,15 @@
-const Tabs = (topics) => {
-  // TASK 3
+
+import axios from "axios"; 
+
+axios.get(`http://localhost:5000/api/topics`)
+.then(resp => {
+  console.log(resp.data.topics);
+})
+.catch(err =>{
+  console.log(err);
+})
+
+ // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
   // As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
@@ -13,6 +23,19 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+
+const Tabs = (topics) => {
+ const topicsDiv = document.createElement('div'); 
+ topicsDiv.classList.add(topics); 
+ topics.forEach(element => {
+   const tabs = document.createElement('div')
+   tabs.classList.add('tab')
+   tabs.textContent = element;
+   topicsDiv.appendChild(tabs)
+
+ });
+ return topicsDiv; 
 }
 
 const tabsAppender = (selector) => {
