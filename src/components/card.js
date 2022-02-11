@@ -1,5 +1,4 @@
-const Card = (article) => {
-  // TASK 5
+// TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
   // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
@@ -16,8 +15,56 @@ const Card = (article) => {
   //     <span>By { authorName }</span>
   //   </div>
   // </div>
-  //
+
+
+
+
+
+
+
+const Card = (article) => {
+  
+const cardDiv = document.createElement('div'); 
+const headlineDiv = document.createElement('div'); 
+const author = document.createElement('div'); 
+const divImageContainer = document.createElement('div'); 
+const image = document.createElement('img');
+const authorSpan = document.createElement('span'); 
+
+
+cardDiv.classList.add('card'); 
+headlineDiv.classList.add('headline'); 
+author.classList.add('author'); 
+divImageContainer.classList.add('img-container'); 
+
+headlineDiv.textContent = article.headline; 
+image.src = article.authorPhoto; 
+authorSpan.textContent = `Written by: ${article.authorName}`; 
+
+
+
+cardDiv.appendChild(headline); 
+cardDiv.appendChild(author); 
+author.appendChild(divImageContainer); 
+divImageContainer.appendChild(image); 
+author.appendChild(authorSpan); 
+
+
+cardDiv.addEventListener('click', () =>{
+  console.log(article.headline); 
+})
+
+
+
+
+
+
 }
+
+
+
+
+  
 
 const cardAppender = (selector) => {
   // TASK 6
