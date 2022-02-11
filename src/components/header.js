@@ -50,7 +50,7 @@ return divHeader;
 const headerAppender = (selector) => {
   
   const selectorDate = document.querySelector(selector);
-  selectorDate.appendChild(Header('Lambda Times', 'Feb 10th, 2022', '70 degrees'))
+  selectorDate.appendChild(Header('Bloom Times', 'Feb 10th, 2022', '70 degrees'))
 
 }
 
